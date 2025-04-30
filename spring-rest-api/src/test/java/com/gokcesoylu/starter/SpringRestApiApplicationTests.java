@@ -1,4 +1,4 @@
-package com.gokcesoylu.spring_rest_api;
+package com.gokcesoylu.starter;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
