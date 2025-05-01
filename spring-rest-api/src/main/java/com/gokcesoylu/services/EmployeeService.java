@@ -18,4 +18,12 @@ public class EmployeeService {
 
         return employeeRepository.getEmployeeList();
     }
+
+    public Employee getEmployeeById(String id) {
+        return employeeRepository.getEmployeeById(id);
+    }
+
+    public String getEmployeeIdByName(String name) {
+        return employeeRepository.getEmployeeIdByName(name);
+    }
 }
