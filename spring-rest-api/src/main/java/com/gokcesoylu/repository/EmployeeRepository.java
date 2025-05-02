@@ -1,5 +1,6 @@
 package com.gokcesoylu.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,26 @@ public class EmployeeRepository {
             }
         }
         return id;
+    }
+
+    public List<Employee> getEmployeeWithParams(String firstname, String lastname) {
+        List<Employee> employeesWithParams = new ArrayList<>();
+        if (firstname == null && lastname == null) {
+            return employeeList;
+        }
+        for (Employee employee : employeeList) {
+            if (firstname != null && lastname != null) {
+                if (employee.getFirstname().equalsIgnoreCase(firstname)
+                        && employee.getLastname().equalsIgnoreCase(lastname)) {
+                    employeesWithParams.add(employee);
+                }
+            } else if (firstname != null) {
+                if (employee.getFirstname().equalsIgnoreCase(firstname))
+                    employeesWithParams.add(employee);
+            } else if (lastname != null)
+                if (employee.getLastname().equalsIgnoreCase(lastname))
+                    employeesWithParams.add(employee);
+        }
+        return employeesWithParams;
     }
 }

@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
-@RequestMapping(path = "/rest/api")
+@RequestMapping(path = "/rest/api/employee")
 public class RestEmployeeController {
 
     private List<Employee> employeeList;
@@ -20,19 +21,27 @@ public class RestEmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping(path = "/employee-list")
+    @GetMapping(path = "/list")
     public List<Employee> getAllEmployeeList() {
         return employeeService.getAllEmployeeList();
 
     }
 
-    @GetMapping(path = "/employee-list/{id}")
+    @GetMapping(path = "/list/{id}")
     public Employee getEmployeeById(@PathVariable(name = "id", required = true) String id) {
         return employeeService.getEmployeeById(id);
     }
 
-    @GetMapping(path = "/employee/{name}")
+    @GetMapping(path = "/{name}")
     public String getEmployeeIdByName(@PathVariable(name = "name", required = true) String name) {
         return employeeService.getEmployeeIdByName(name);
+    }
+
+    @GetMapping(path = "/list-with-params ")
+    public List<Employee> getEmployeeWithParams(@RequestParam(name = "firstname", required = false) String firstname,
+            @RequestParam(name = "lastname", required = false) String lastname) {
+        System.out.println("COLSOLEG  =  " + firstname + " " + lastname);
+        return employeeService.getEmployeeWithParams(firstname, lastname);
+
     }
 }
