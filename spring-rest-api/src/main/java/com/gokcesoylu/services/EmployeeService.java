@@ -30,4 +30,12 @@ public class EmployeeService {
     public List<Employee> getEmployeeWithParams(String firstname, String lastname) {
         return employeeRepository.getEmployeeWithParams(firstname, lastname);
     }
+
+    public Employee saveEmployee(Employee newEmployee) {
+        return employeeRepository.saveEmployee(newEmployee);
+    }
+
+    public Boolean deleteEmployee(String id) {
+        return employeeRepository.deleteEmployee(id);
+    }
 }

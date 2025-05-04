@@ -60,4 +60,14 @@ public class EmployeeRepository {
         }
         return employeesWithParams;
     }
+
+    public Employee saveEmployee(Employee newEmployee) {
+        employeeList.add(newEmployee);
+        return newEmployee;
+    }
+
+    public Boolean deleteEmployee(String id) {
+        return employeeList.removeIf(emp -> id.equals(emp.getId()));
+    }
+
 }

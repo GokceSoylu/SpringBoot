@@ -6,17 +6,18 @@ import com.gokcesoylu.services.EmployeeService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping(path = "/rest/api/employee")
 public class RestEmployeeController {
-
-    private List<Employee> employeeList;
 
     @Autowired
     private EmployeeService employeeService;
@@ -37,11 +38,21 @@ public class RestEmployeeController {
         return employeeService.getEmployeeIdByName(name);
     }
 
-    @GetMapping(path = "/list-with-params ")
+    @GetMapping(path = "/list-with-params")
     public List<Employee> getEmployeeWithParams(@RequestParam(name = "firstname", required = false) String firstname,
             @RequestParam(name = "lastname", required = false) String lastname) {
         System.out.println("COLSOLEG  =  " + firstname + " " + lastname);
         return employeeService.getEmployeeWithParams(firstname, lastname);
 
+    }
+
+    @PostMapping(path = "/save-employee")
+    public Employee saveEmployee(@RequestBody Employee newEmployee) {
+        return employeeService.saveEmployee(newEmployee);
+    }
+
+    @DeleteMapping(path = "/delete-employee/{id}")
+    public Boolean deleteEmployee(@PathVariable("id") String id) {
+        return employeeService.deleteEmployee(id);
     }
 }
