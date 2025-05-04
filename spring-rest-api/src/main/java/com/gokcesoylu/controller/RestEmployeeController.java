@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -54,5 +55,13 @@ public class RestEmployeeController {
     @DeleteMapping(path = "/delete-employee/{id}")
     public Boolean deleteEmployee(@PathVariable("id") String id) {
         return employeeService.deleteEmployee(id);
+    }
+
+    @PutMapping(path = "/update-employee/{id}") // dikkat dostum path varaible için url'de belirtiyoruz ancak, request
+                                                // body için url de birşey belirtmemize gerek yok. zeten path varaible
+                                                // ile gelen url için gelirken requestbody ile hgeln isteğin body
+                                                // kısmında json oalrak gelir :))
+    public Employee updarEmployee(@RequestBody UpdateEmployeeRequest request, @PathVariable("id") String id) {
+        return employeeService.updateEmploye(id, request);
     }
 }

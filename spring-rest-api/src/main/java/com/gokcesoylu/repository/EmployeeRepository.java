@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gokcesoylu.model.Employee;
+import com.gokcesoylu.model.UpdateEmployeeRequest;
 
 @Repository
 public class EmployeeRepository {
@@ -70,4 +71,16 @@ public class EmployeeRepository {
         return employeeList.removeIf(emp -> id.equals(emp.getId()));
     }
 
+    public Employee updateEmployee(String id, UpdateEmployeeRequest request) {
+        for (Employee emp : employeeList) {
+            if (id.equals(emp.getId())) {
+                if (request.getFirstname() != null)
+                    emp.setFirstname(request.getFirstname());
+                if (request.getLastName() != null)
+                    emp.setLastname(request.getLastName());
+                return emp;
+            }
+        }
+        return null;
+    }
 }

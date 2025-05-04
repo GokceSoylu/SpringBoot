@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gokcesoylu.model.Employee;
+import com.gokcesoylu.model.UpdateEmployeeRequest;
 import com.gokcesoylu.repository.EmployeeRepository;
 
 @Service
@@ -37,5 +38,9 @@ public class EmployeeService {
 
     public Boolean deleteEmployee(String id) {
         return employeeRepository.deleteEmployee(id);
+    }
+
+    public Employee updateEmploye(String id, UpdateEmployeeRequest request) {
+        return employeeRepository.updateEmployee(id, request);
     }
 }
