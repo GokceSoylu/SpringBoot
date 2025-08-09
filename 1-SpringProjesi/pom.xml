@@ -1,3 +1,4 @@
+<!-- Bu sayfada proje özellikleir versiyonu yazar -->>
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -10,7 +11,7 @@
 	</parent>
 	<groupId>com.gokcesoylu</groupId>
 	<artifactId>1-SpringProjesi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>1-SpringProjesi</name>
 	<description>Spring Projesi nasıl açılır</description>
 	<url/>
@@ -29,6 +30,7 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+	<!--İşte burada dependencies içine yeni dependency ekleyerek bir nevi yeni kütüphaneler paketler  ekleyebiliriz -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
