@@ -32,6 +32,11 @@
 	<!--İşte burada dependencies içine yeni dependency ekleyerek bir nevi yeni kütüphaneler paketler  ekleyebiliriz -->
 	<dependencies>
 		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
