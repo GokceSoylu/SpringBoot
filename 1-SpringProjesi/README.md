@@ -1,5 +1,5 @@
 # Dosya İçeriği
-
+# Spring + @Configuration + @Bean öğrenme amaçlı
 * pom.xml dosyasında projenin versiyonu vb özellikleri bulunur. Bunun yanı sıra Depencies kısmında eklenen bağımlılıklar (dependency) projeye eklediğmiz özellikler - kütüphanelerdir. İstediğimiz bağımlılığa bu dosyaya eklediiğmizde gerekli paketler otomatik olarak projeye dahil edilir. Silmemiz durumunda da aynı şekilde otomatik olarak silinir.
 
 * src/main/resources/application.properties veri tabanı bağlantısı yaptığımızda gerekli tanımlamaları konfigürayonları yaptığımız kısımdır(hangi veri tabanı, kullanıcı, url adresi vb)
