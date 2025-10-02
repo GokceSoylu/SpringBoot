@@ -11,16 +11,16 @@ import com.gokcesoylu.model.Employee;
 import com.gokcesoylu.services.EmployeeService;
 
 @RestController
-@RequestMapping("rest-api")
+@RequestMapping("/rest/api")
 public class RestEmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
 
-    @GetMapping("/emloyee-list")
+    @GetMapping(path = "/emloyee-list")
     public List<Employee> getAllEmployeeList() {
-        employeeService.getAllEmployeeList();
-        return null;
+
+        return employeeService.getAllEmployeeList();
     }
 
 }
