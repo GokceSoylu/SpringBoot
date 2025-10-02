@@ -16,8 +16,12 @@ public class AppConfig {
     public UserService userServiceConfig() {
         UserService userService = new UserService();
         List<User> userList = new ArrayList<>();
-        userList.add(new User("Gökçe"));
-        userList.add(new User("Taha"));
+        userList.add(new User("Gökçe", "Soylu", "g123"));
+        userList.add(new User("Taha", "Özmen", "t123"));
+        userList.add(new User("Tekir", "Soylu", "t123"));
+        userList.add(new User("Aslan", "Özmen", "a123"));
+        userList.add(new User("Sarman", "Özmen", "s123"));
+        userList.add(new User("Pisi", "Soylu", "p123"));
 
         userService.setUserList(userList);
 
