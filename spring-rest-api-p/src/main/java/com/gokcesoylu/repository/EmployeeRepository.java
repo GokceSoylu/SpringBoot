@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
+import com.gokcesoylu.model.UpdateEmployeeRequest;
 import com.gokcesoylu.model.Employee;
 
 @Repository
@@ -76,5 +76,18 @@ public class EmployeeRepository {
             }
         }
         return flag;
+    }
+
+    public Employee updateEmployee(String id, UpdateEmployeeRequest request) {
+        Employee updatedEmployee = null;
+        for (Employee e : employees) {
+            if (id.equals(e.getId())) {
+                updatedEmployee = e;
+                e.setFirstname(request.getFirstname());
+                e.setLastname(request.getLastname());
+                break;
+            }
+        }
+        return updatedEmployee;
     }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.gokcesoylu.model.UpdateEmployeeRequest;
 import com.gokcesoylu.model.Employee;
 import com.gokcesoylu.repository.EmployeeRepository;
 
@@ -33,5 +33,9 @@ public class EmployeeService {
 
     public boolean deleteEmployee(String id) {
         return employeeRepository.deleteEmployee(id);
+    }
+
+    public Employee updateEmployee(String id, UpdateEmployeeRequest request) {
+        return employeeRepository.updateEmployee(id, request);
     }
 }
