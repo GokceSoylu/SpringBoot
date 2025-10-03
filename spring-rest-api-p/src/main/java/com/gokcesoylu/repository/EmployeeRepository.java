@@ -32,11 +32,29 @@ public class EmployeeRepository {
 
     public List<Employee> getEmployeeWithParams(String firstname, String lastname) {
         List<Employee> emlpoyeeListParams = new ArrayList<>();
-        for (Employee e : employees) {
-            if (firstname.equals(e.getFirstname()) & lastname.equals(e.getLastname())) {
-                emlpoyeeListParams.add(e);
+        if (firstname == null & lastname == null)
+            return employees;
+
+        if (firstname != null & lastname != null) {
+            for (Employee e : employees) {
+                if (firstname.equals(e.getFirstname()) & lastname.equals(e.getLastname())) {
+                    emlpoyeeListParams.add(e);
+                }
+            }
+        } else if (firstname == null) {
+            for (Employee e : employees) {
+                if (lastname.equals(e.getLastname())) {
+                    emlpoyeeListParams.add(e);
+                }
+            }
+        } else {
+            for (Employee e : employees) {
+                if (firstname.equals(e.getFirstname())) {
+                    emlpoyeeListParams.add(e);
+                }
             }
         }
+
         return emlpoyeeListParams;
     }
 }

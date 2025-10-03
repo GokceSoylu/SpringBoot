@@ -31,8 +31,8 @@ public class RestEmployeeController {
     }
 
     @GetMapping(path = "/with-params")
-    public List<Employee> getEmployeeWithParams(@RequestParam(name = "firstname") String firstname,
-            @RequestParam(name = "lastname") String lastname) {
+    public List<Employee> getEmployeeWithParams(@RequestParam(name = "firstname", required = false) String firstname,
+            @RequestParam(name = "lastname", required = false) String lastname) {
 
         return employeeService.getEmployeeWithParams(firstname, lastname);
     }
