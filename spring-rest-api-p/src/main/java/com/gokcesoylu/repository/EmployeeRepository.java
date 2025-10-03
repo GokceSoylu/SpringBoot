@@ -67,7 +67,8 @@ public class EmployeeRepository {
         Employee deletedEmployee;
         boolean flag = false;
         for (Employee e : employees) {
-            if (id.equals(e.getId())) {
+            if (id.equals(e.getId())) {// bazen for dögüsü içinde listeede değişiklik yapmaya izin vermez bu dıurumda
+                                       // silmeyi forun dışına taşırsın burad ahata vermediğ için böyle bıraktrım
                 deletedEmployee = e;
                 employees.remove(deletedEmployee);
                 flag = true;
