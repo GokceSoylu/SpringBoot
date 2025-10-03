@@ -57,4 +57,9 @@ public class EmployeeRepository {
 
         return emlpoyeeListParams;
     }
+
+    public Employee saveEmployee(Employee newEmployee) {
+        employees.add(newEmployee);
+        return newEmployee;
+    }
 }
