@@ -9,4 +9,6 @@ public interface IstudentController {
     public Student saveStudent(Student student);
 
     public List<Student> getAllStudents();
+
+    public Student getStudentById(Integer id);
 }

@@ -12,6 +12,7 @@ import com.gokcesoylu.controller.IstudentController;
 import com.gokcesoylu.model.Student;
 import com.gokcesoylu.services.IStudentService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/rest/api/student")
@@ -31,5 +32,11 @@ public class StudentControllerImpl implements IstudentController {
     @Override
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
+    }
+
+    @GetMapping("/{id}")
+    @Override
+    public Student getStudentById(@PathVariable(name = "id", required = true) Integer id) {
+        return studentService.getStudentById(id);
     }
 }
