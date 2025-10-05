@@ -1,5 +1,6 @@
 package com.gokcesoylu.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,16 +32,26 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll();
+    public List<DtoStudent> getAllStudents() {
+        List<Student> stdList = new ArrayList<>();
+        List<DtoStudent> dtoStudents = new ArrayList<>();
+        stdList = studentRepository.findAll();
+        for (Student student : stdList) {
+            DtoStudent dtoStudent = new DtoStudent();
+            BeanUtils.copyProperties(student, dtoStudent);
+            dtoStudents.add(dtoStudent);
+        }
+        return dtoStudents;
     }
 
     @Override
-    public Student getStudentById(Integer id) {
+    public DtoStudent getStudentById(Integer id) {
         Optional<Student> os = studentRepository.findById(id);
-        if (os.isPresent())
-            return os.get();
-        else
+        if (os.isPresent()) {
+            DtoStudent dtoStudent = new DtoStudent();
+            BeanUtils.copyProperties(os.get(), dtoStudent);
+            return dtoStudent;
+        } else
             return null;
     }
 
@@ -55,12 +66,16 @@ public class StudentServiceImpl implements IStudentService {
 
     @Override
     public DtoStudent updateStudent(Integer id, DtoStudentIU dtoStudentIU) {
-        Student std_db = getStudentById(id);
-        if (std_db != null) {
-            BeanUtils.copyProperties(dtoStudentIU, std_db);
+        Optional<Student> opt = studentRepository.findById(id);
+        if (opt != null) {
+            Student std = new Student();
+            std = opt.get();
+            std.setFirstname(dtoStudentIU.getFirstname());
+            std.setLastname(dtoStudentIU.getLastname());
+            std.setBirthOfDate(dtoStudentIU.getBirthOfDate());
+            std = studentRepository.save(std);
             DtoStudent dtoStudent = new DtoStudent();
-            dtoStudent = saveStudent(dtoStudentIU);
-            BeanUtils.copyProperties(std_db, dtoStudent);
+            BeanUtils.copyProperties(std, dtoStudent);
             return dtoStudent;
         }
         return null;

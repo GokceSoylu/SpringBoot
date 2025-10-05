@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gokcesoylu.controller.IstudentController;
 import com.gokcesoylu.dto.DtoStudent;
 import com.gokcesoylu.dto.DtoStudentIU;
-import com.gokcesoylu.model.Student;
 import com.gokcesoylu.services.IStudentService;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -34,13 +33,13 @@ public class StudentControllerImpl implements IstudentController {
 
     @GetMapping("/list")
     @Override
-    public List<Student> getAllStudents() {
+    public List<DtoStudent> getAllStudents() {
         return studentService.getAllStudents();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("list/{id}")
     @Override
-    public Student getStudentById(@PathVariable(name = "id", required = true) Integer id) {
+    public DtoStudent getStudentById(@PathVariable(name = "id", required = true) Integer id) {
         return studentService.getStudentById(id);
     }
 
