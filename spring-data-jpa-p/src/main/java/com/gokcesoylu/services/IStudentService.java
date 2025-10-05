@@ -10,4 +10,9 @@ public interface IStudentService {
     public List<Student> getAllStudents();
 
     public Student getStudentById(Integer id);
+
+    public boolean deleteStudent(Integer id);
+
+    public boolean updateStudent(Integer id, Student updaStudent);
+
 }

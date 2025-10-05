@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gokcesoylu.controller.IstudentController;
 import com.gokcesoylu.model.Student;
 import com.gokcesoylu.services.IStudentService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -38,5 +40,19 @@ public class StudentControllerImpl implements IstudentController {
     @Override
     public Student getStudentById(@PathVariable(name = "id", required = true) Integer id) {
         return studentService.getStudentById(id);
+    }
+
+    @DeleteMapping(path = "/delete/{id}")
+    @Override
+    public boolean deleteStudent(@PathVariable(name = "id", required = true) Integer id) {
+
+        return studentService.deleteStudent(id);
+    }
+
+    @PostMapping("update/{id}")
+    @Override
+    public boolean updaStudent(@PathVariable(name = "id", required = true) Integer id,
+            @RequestBody Student updateStudent) {
+        return studentService.updateStudent(id, updateStudent);
     }
 }

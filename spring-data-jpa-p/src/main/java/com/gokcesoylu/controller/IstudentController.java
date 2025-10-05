@@ -11,4 +11,8 @@ public interface IstudentController {
     public List<Student> getAllStudents();
 
     public Student getStudentById(Integer id);
+
+    public boolean deleteStudent(Integer id);
+
+    public boolean updaStudent(Integer id, Student updateStudent);
 }
