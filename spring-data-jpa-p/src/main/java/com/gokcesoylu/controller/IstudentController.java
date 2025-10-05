@@ -2,11 +2,13 @@ package com.gokcesoylu.controller;
 
 import java.util.List;
 
+import com.gokcesoylu.dto.DtoStudent;
+import com.gokcesoylu.dto.DtoStudentIU;
 import com.gokcesoylu.model.Student;
 
 public interface IstudentController {
 
-    public Student saveStudent(Student student);
+    public DtoStudent saveStudent(DtoStudentIU dtoStudentIU);
 
     public List<Student> getAllStudents();
 
@@ -14,5 +16,5 @@ public interface IstudentController {
 
     public boolean deleteStudent(Integer id);
 
-    public boolean updaStudent(Integer id, Student updateStudent);
+    public DtoStudent updaStudent(Integer id, DtoStudentIU dtoStudentIU);
 }

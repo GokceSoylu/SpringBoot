@@ -2,10 +2,12 @@ package com.gokcesoylu.services;
 
 import java.util.List;
 
+import com.gokcesoylu.dto.DtoStudent;
+import com.gokcesoylu.dto.DtoStudentIU;
 import com.gokcesoylu.model.Student;
 
 public interface IStudentService {
-    public Student saveStudent(Student student);
+    public DtoStudent saveStudent(DtoStudentIU dtoStudentIU);
 
     public List<Student> getAllStudents();
 
@@ -13,6 +15,6 @@ public interface IStudentService {
 
     public boolean deleteStudent(Integer id);
 
-    public boolean updateStudent(Integer id, Student updaStudent);
+    public DtoStudent updateStudent(Integer id, DtoStudentIU dtoStudentIU);
 
 }

@@ -3,9 +3,12 @@ package com.gokcesoylu.services.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gokcesoylu.dto.DtoStudent;
+import com.gokcesoylu.dto.DtoStudentIU;
 import com.gokcesoylu.model.Student;
 import com.gokcesoylu.repository.StudentRepository;
 import com.gokcesoylu.services.IStudentService;
@@ -17,9 +20,14 @@ public class StudentServiceImpl implements IStudentService {
     private StudentRepository studentRepository;
 
     @Override
-    public Student saveStudent(Student student) {
+    public DtoStudent saveStudent(DtoStudentIU dtoStudentIU) {
 
-        return studentRepository.save(student);
+        Student student = new Student();
+        BeanUtils.copyProperties(dtoStudentIU, student);
+        studentRepository.save(student);
+        DtoStudent dtoStudent = new DtoStudent();
+        BeanUtils.copyProperties(dtoStudentIU, dtoStudent);
+        return dtoStudent;
     }
 
     @Override
@@ -46,16 +54,16 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public boolean updateStudent(Integer id, Student updateStudent) {
+    public DtoStudent updateStudent(Integer id, DtoStudentIU dtoStudentIU) {
         Student std_db = getStudentById(id);
         if (std_db != null) {
-            std_db.setFirstname(updateStudent.getFirstname());
-            std_db.setLastname(updateStudent.getLastname());
-            std_db.setBirthOfDate(updateStudent.getBirthOfDate());
-            saveStudent(std_db);
-            return true;
+            BeanUtils.copyProperties(dtoStudentIU, std_db);
+            DtoStudent dtoStudent = new DtoStudent();
+            dtoStudent = saveStudent(dtoStudentIU);
+            BeanUtils.copyProperties(std_db, dtoStudent);
+            return dtoStudent;
         }
-        return false;
+        return null;
     }
 
 }
