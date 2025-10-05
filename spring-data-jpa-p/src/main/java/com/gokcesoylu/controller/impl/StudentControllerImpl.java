@@ -13,6 +13,8 @@ import com.gokcesoylu.dto.DtoStudent;
 import com.gokcesoylu.dto.DtoStudentIU;
 import com.gokcesoylu.services.IStudentService;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +28,7 @@ public class StudentControllerImpl implements IstudentController {
 
     @PostMapping(path = "/save")
     @Override
-    public DtoStudent saveStudent(@RequestBody DtoStudentIU dtoStudentIU) {
+    public DtoStudent saveStudent(@RequestBody @Valid DtoStudentIU dtoStudentIU) {
 
         return studentService.saveStudent(dtoStudentIU);
     }
