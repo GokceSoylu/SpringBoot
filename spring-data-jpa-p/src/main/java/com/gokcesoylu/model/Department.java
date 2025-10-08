@@ -10,17 +10,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "room")
-public class Room {
-
+@Data
+@Entity
+@Table(name = "department")
+public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "department_name")
+    private String departmentName;
+
 }
