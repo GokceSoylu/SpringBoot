@@ -31,7 +31,7 @@ public class AddressServiceImpl implements IAddressService {
             address = opt.get();
             customer = opt.get().getCustomer();
             BeanUtils.copyProperties(address, dtoAddress);
-            BeanUtils.copyProperties(dtoCustomer, customer);
+            BeanUtils.copyProperties(customer, dtoCustomer);
             dtoAddress.setCustomer(dtoCustomer);
             return dtoAddress;
         }
