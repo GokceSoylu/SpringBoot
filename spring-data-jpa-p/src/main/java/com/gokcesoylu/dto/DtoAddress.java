@@ -11,5 +11,5 @@ public class DtoAddress {
 
     private Integer id;
     private String description;
-
+    private DtoCustomer customer;
 }
