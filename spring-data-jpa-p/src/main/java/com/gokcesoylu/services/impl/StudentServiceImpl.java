@@ -52,10 +52,12 @@ public class StudentServiceImpl implements IStudentService {
         if (os.isPresent()) {
             DtoStudent dtoStudent = new DtoStudent();
             BeanUtils.copyProperties(os.get(), dtoStudent);
-            for (Course course : os.get().getCourses()) {
-                DtoCourse dtoCourse = new DtoCourse();
-                dtoCourse.setName(course.getName());
-                dtoStudent.getCourses().add(dtoCourse);
+            if (!dtoStudent.getCourses().isEmpty() && dtoStudent.getCourses() != null) {
+                for (Course course : os.get().getCourses()) {
+                    DtoCourse dtoCourse = new DtoCourse();
+                    dtoCourse.setName(course.getName());
+                    dtoStudent.getCourses().add(dtoCourse);
+                }
             }
             return dtoStudent;
         } else
