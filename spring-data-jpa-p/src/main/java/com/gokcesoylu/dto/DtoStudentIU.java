@@ -23,4 +23,5 @@ public class DtoStudentIU {
     @Size(min = 2, max = 50, message = "soy isim uzunluğu 2 ila 50 karakter arasında olmalıdır")
     private String lastname;
     private Date birthOfDate;
+
 }

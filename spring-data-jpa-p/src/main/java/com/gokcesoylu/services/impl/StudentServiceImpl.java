@@ -8,8 +8,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gokcesoylu.dto.DtoCourse;
 import com.gokcesoylu.dto.DtoStudent;
 import com.gokcesoylu.dto.DtoStudentIU;
+import com.gokcesoylu.model.Course;
 import com.gokcesoylu.model.Student;
 import com.gokcesoylu.repository.StudentRepository;
 import com.gokcesoylu.services.IStudentService;
@@ -50,6 +52,11 @@ public class StudentServiceImpl implements IStudentService {
         if (os.isPresent()) {
             DtoStudent dtoStudent = new DtoStudent();
             BeanUtils.copyProperties(os.get(), dtoStudent);
+            for (Course course : os.get().getCourses()) {
+                DtoCourse dtoCourse = new DtoCourse();
+                dtoCourse.setName(course.getName());
+                dtoStudent.getCourses().add(dtoCourse);
+            }
             return dtoStudent;
         } else
             return null;
