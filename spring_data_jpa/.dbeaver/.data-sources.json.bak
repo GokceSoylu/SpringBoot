@@ -20,26 +20,6 @@
 				},
 				"auth-model": "native"
 			}
-		},
-		"postgres-jdbc-199d95e01e1-31e0b199add5a6a6": {
-			"provider": "postgresql",
-			"driver": "postgres-jdbc",
-			"name": "ecommerce_db",
-			"save-password": true,
-			"configuration": {
-				"host": "localhost",
-				"port": "55433",
-				"database": "ecommerce_db",
-				"url": "jdbc:postgresql://localhost:55433/ecommerce_db",
-				"configurationType": "MANUAL",
-				"home": "/opt/homebrew/Cellar/postgresql@14/14.17_1",
-				"type": "dev",
-				"closeIdleConnection": true,
-				"provider-properties": {
-					"@dbeaver-show-non-default-db@": "false"
-				},
-				"auth-model": "native"
-			}
 		}
 	},
 	"connection-types": {
