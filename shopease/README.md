@@ -131,3 +131,7 @@ Spring Boot & Backend Developer Adayı
 ---
 
 📄 **Lisans:** Bu proje öğrenme amaçlıdır. Serbestçe kullanılabilir.
+
+
+## veri tabanı şeması
+![alt text](ecemmerce-db.png)
