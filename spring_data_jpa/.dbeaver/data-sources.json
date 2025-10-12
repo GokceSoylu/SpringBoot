@@ -21,16 +21,16 @@
 				"auth-model": "native"
 			}
 		},
-		"postgres-jdbc-199d95e01e1-31e0b199add5a6a6": {
+		"postgres-jdbc-199d98eb6ba-2d9dd597b0bbbaaa": {
 			"provider": "postgresql",
 			"driver": "postgres-jdbc",
-			"name": "ecommerce_db",
+			"name": "ecommerce-db",
 			"save-password": true,
 			"configuration": {
 				"host": "localhost",
 				"port": "55433",
-				"database": "ecommerce_db",
-				"url": "jdbc:postgresql://localhost:55433/ecommerce_db",
+				"database": "ecommerce-db",
+				"url": "jdbc:postgresql://localhost:55433/ecommerce-db",
 				"configurationType": "MANUAL",
 				"home": "/opt/homebrew/Cellar/postgresql@14/14.17_1",
 				"type": "dev",
