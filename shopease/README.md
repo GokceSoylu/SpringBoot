@@ -134,4 +134,4 @@ Spring Boot & Backend Developer Adayı
 
 
 ## veri tabanı şeması
-![alt text](ecemmerce-db.png)
+![alt text](ecommerce-db.png)

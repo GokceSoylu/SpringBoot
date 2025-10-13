@@ -21,7 +21,6 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String city;
-    private String address;
     private String phone;
 
     @OneToOne
