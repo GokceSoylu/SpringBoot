@@ -40,6 +40,46 @@
 				},
 				"auth-model": "native"
 			}
+		},
+		"postgres-jdbc-199f27a4916-409b6eca0b9793ab": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "relations-db",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "55433",
+				"database": "relations-db",
+				"url": "jdbc:postgresql://localhost:55433/relations-db",
+				"configurationType": "MANUAL",
+				"home": "/opt/homebrew/Cellar/postgresql@14/14.17_1",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false"
+				},
+				"auth-model": "native"
+			}
+		},
+		"postgres-jdbc-199f27b806c-2860cb1cede446f5": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "relations-db 2",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "55433",
+				"database": "relations-db",
+				"url": "jdbc:postgresql://localhost:55433/relations-db",
+				"configurationType": "MANUAL",
+				"home": "/opt/homebrew/Cellar/postgresql@14/14.17_1",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false"
+				},
+				"auth-model": "native"
+			}
 		}
 	},
 	"connection-types": {
